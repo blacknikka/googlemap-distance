@@ -20,7 +20,7 @@ def main():
     for aFile in files:
         # データ抽出
         properties = scrapingService.fetchFromHtmlFileAndScraping(aFile)
-        for aPropaty in properties[:1]:
+        for aPropaty in properties:
 
             # use google api
             google = GoogleAPI()
@@ -37,6 +37,8 @@ def main():
 
             if aPropaty.canWalk() == True:
                 walkableProperties.append(aPropaty)
+
+    print("\n------------------------\n")
 
     if len(walkableProperties) == 0:
         print("There is nothing of walkable property")

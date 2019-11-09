@@ -33,7 +33,7 @@ class PropertyData:
         self.__timeByWalk = timedelta(seconds=timeBySec)
 
     def toString(self):
-        return f"{self.__name}\n{self.__address}\n{self.__url}\n{self.__timeByWalk}\n{self.__distance}"
+        return f"{self.__name}\n{self.__address}\n{self.__url}\n{self.__timeByWalk}\n{self.__distance}\n"
 
     def distanceByKilloMeter(self):
         self.__distance / 1000
@@ -42,4 +42,4 @@ class PropertyData:
         self.__distance = distance
 
     def canWalk(self):
-        return self.__distance < 2000
+        return self.__distance < 2500
