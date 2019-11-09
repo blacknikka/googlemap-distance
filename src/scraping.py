@@ -6,7 +6,7 @@ class ScrapingService:
         # do nothing
         pass
 
-    def fetchFromWeb(self, url):
+    def fetchAndScraping(self, url):
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as res:
             body = res.read()
