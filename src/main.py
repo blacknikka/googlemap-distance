@@ -1,6 +1,9 @@
 from googleApi import GoogleAPI
 from scraping import ScrapingService
 import sys
+import glob
+import os
+
 
 def main():
     args = sys.argv
@@ -10,11 +13,16 @@ def main():
         return ()
 
     scrapingService = ScrapingService()
-    scrapingService.fetchAndScraping(args[1])
+    files = glob.glob(os.path.join(args[1], '*.html'))
+
+    for aFile in files:
+        print(aFile)
+        # scrapingService.fetchFromHtmlFileAndScraping(aFile)
 
     # google = GoogleAPI()
     # contents = google.FetchDistanceFromGoogleApi()
     # print(contents)
+
 
 if __name__ == "__main__":
     main()

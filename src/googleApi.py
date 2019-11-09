@@ -1,4 +1,4 @@
-from scraping import *
+import urllib.request, urllib.error
 import settings
 
 # document
