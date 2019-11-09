@@ -16,7 +16,10 @@ def main():
     files = glob.glob(os.path.join(args[1], '*.html'))
 
     for aFile in files:
-        scrapingService.fetchFromHtmlFileAndScraping(aFile)
+        # データ抽出
+        properties = scrapingService.fetchFromHtmlFileAndScraping(aFile)
+        for aPropaty in properties:
+            print(aPropaty.toString())
 
     # google = GoogleAPI()
     # contents = google.FetchDistanceFromGoogleApi()
