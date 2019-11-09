@@ -1,5 +1,6 @@
 import urllib.request, urllib.error
 import settings
+import json
 
 # document
 # https://developers.google.com/maps/documentation/distance-matrix/intro?hl=ja
@@ -15,10 +16,9 @@ class GoogleAPI:
         }
 
         req = urllib.request.Request(
-            '{}?{}'.format('https://maps.googleapis.com/maps/api/distancematrix/xml',
-            urllib.parse.urlencode(params))
+            f'https://maps.googleapis.com/maps/api/distancematrix/json?{urllib.parse.urlencode(params)}',
         )
         with urllib.request.urlopen(req) as res:
-            body = res.read()
+            body = res.read().decode('utf-8')
 
-        print(body)
+        return json.loads(body)
