@@ -1,5 +1,6 @@
 from googleApi import GoogleAPI
 from scraping import ScrapingService
+import settings
 import sys
 import glob
 import os
@@ -18,13 +19,18 @@ def main():
     for aFile in files:
         # データ抽出
         properties = scrapingService.fetchFromHtmlFileAndScraping(aFile)
-        for aPropaty in properties:
+        for aPropaty in properties[:1]:
             print(aPropaty.toString())
 
-    # google = GoogleAPI()
-    # contents = google.FetchDistanceFromGoogleApi()
-    # print(contents)
+            # use google api
+            google = GoogleAPI()
+            receivedDict = google.FetchDistanceFromGoogleApi(
+                settings.DEPARTURE,
+                aPropaty.address()
+            )
 
+            # 時間をセット
+            aPropaty.setTimeByWalk(receivedDict['rows'][0]['elements'][0]['duration']['value'])
 
 if __name__ == "__main__":
     main()

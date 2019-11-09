@@ -28,8 +28,8 @@ class PropertyData:
     def timeByWalk(self):
         return self.__timeByWalk
 
-    def setTimeByWalk(self, time):
-        self.__timeByWalk = time
+    def setTimeByWalk(self, timeBySec):
+        self.__timeByWalk = timedelta(seconds=timeBySec)
 
     def toString(self):
         return f"{self.__name}\n{self.__address}\n{self.__url}\n{self.__timeByWalk}\n"
