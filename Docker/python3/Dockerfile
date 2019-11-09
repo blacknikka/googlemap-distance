@@ -15,4 +15,5 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 
 # install
-RUN pip install beautifulsoup4
+RUN pip install beautifulsoup4 \
+    pip install urllib2
